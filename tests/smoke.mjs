@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+const root = path.resolve('.');
+assert.ok(fs.existsSync('server.js'), 'server.js is missing');
+assert.ok(fs.existsSync('src/App.jsx'), 'src/App.jsx is missing');
+assert.ok(fs.existsSync('index.html'), 'index.html is missing');
+assert.ok(fs.existsSync('public/manifest.webmanifest'), 'PWA manifest is missing');
+const pkg = JSON.parse(fs.readFileSync('package.json','utf8'));
+for (const script of ['dev','build','server','lint','test']) assert.ok(pkg.scripts[script], `missing npm script: ${script}`);
+console.log('CivicEco smoke tests passed.');

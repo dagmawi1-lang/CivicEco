@@ -1,0 +1,7 @@
+node_modules/
+dist/
+data/civiceco.json
+data/civiceco.json.backup
+*.tmp
+.env
+.DS_Store
